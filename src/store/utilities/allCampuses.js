@@ -1,4 +1,6 @@
 import axios from "axios";
+// const BASE_URL =
+//   "https://cors-anywhere.herokuapp.com/" + "http://localhost:3001";
 
 // ACTION TYPES;
 const FETCH_ALL_CAMPUSES = "FETCH_ALL_CAMPUSES";
@@ -43,13 +45,13 @@ const fetchAllCampuses = (campuses) => {
 
 // THUNK CREATORS;
 export const fetchAllCampusesThunk = () => (dispatch) => {
-  // return axios
-  //   .get("/api/players")
-  //   .then((res) => res.data)
-  //   .then((players) => dispatch(fetchAllCampuses(players)))
-  //   .catch((err) => console.log(err));
+  return axios
+    .get("/api/campuses")
+    .then((res) => res.data)
+    .then((campuses) => dispatch(fetchAllCampuses(campuses)))
+    .catch((err) => console.log(err));
 
-  return dispatch(fetchAllCampuses(allCampuses));
+  // return dispatch(fetchAllCampuses(allCampuses));
 };
 
 // REDUCER;
