@@ -7,17 +7,24 @@ import { AllCampusesView } from "../views";
 // Smart container;
 class AllCampusesContainer extends Component {
   componentDidMount() {
+    console.log(this.props);
     this.props.fetchAllCampuses();
   }
 
   render() {
-    return <AllCampusesView allCampuses={this.props.allCampuses} />;
+    return (
+      <AllCampusesView
+        allCampuses={this.props.allCampuses}
+        hello={this.props.hello}
+      />
+    );
   }
 }
 
 // Map state to props;
 const mapState = (state) => {
   return {
+    hello: "hello world!!!",
     allCampuses: state.allCampuses,
   };
 };
