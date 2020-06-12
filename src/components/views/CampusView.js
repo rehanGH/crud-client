@@ -12,6 +12,13 @@ import React from "react";
  */
 
 const CampusView = (props) => {
+  let studentDisplay; 
+  if(props.campus.students){
+  studentDisplay = <p>{Response.campus.students} Students</p>;
+  } else {
+    studentDisplay = <p>There are np Students</p>;
+  }
+
   return (
     <>
       <h1>{props.campus.name}</h1>
