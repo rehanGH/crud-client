@@ -15,7 +15,8 @@ const AllCampusesView = (props) => {
           <Link to={`/campuses/${campus.id}`}>
             <h1>{campus.name}</h1>
           </Link>
-          <p>{campus.description}</p>
+          <img src={campus.imageUrl} width="200px" alt={campus.name} />
+          <p>{campus.students.length} students</p>
         </div>
       ))}
     </div>

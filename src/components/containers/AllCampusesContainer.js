@@ -7,7 +7,6 @@ import { AllCampusesView } from "../views";
 // Smart container;
 class AllCampusesContainer extends Component {
   componentDidMount() {
-    console.log(this.props);
     this.props.fetchAllCampuses();
   }
 
