@@ -31,11 +31,14 @@ export const fetchAllCampusesThunk = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const addCampusThunk = (campus) => (dispatch) => {
+export const addCampusThunk = (campus, ownProps) => (dispatch) => {
   return axios
     .post("/api/campuses", campus)
     .then((res) => res.data)
-    .then((newCampus) => dispatch(addCampus(newCampus)))
+    .then((newCampus) => {
+      dispatch(addCampus(newCampus));
+      ownProps.history.push(`/campuses/${newCampus.id}`);
+    })
     .catch((err) => console.log(err));
 };
 
