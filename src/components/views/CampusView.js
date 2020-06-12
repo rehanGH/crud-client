@@ -12,11 +12,11 @@ import React from "react";
  */
 
 const CampusView = (props) => {
-  let studentDisplay; 
-  if(props.campus.students){
-  studentDisplay = <p>{Response.campus.students} Students</p>;
+  let studentDisplay;
+  if (props.campus.students) {
+    studentDisplay = <p>{props.campus.students} Students</p>;
   } else {
-    studentDisplay = <p>There are no Students</p>;
+    studentDisplay = <p>There are no students enrolled</p>;
   }
 
   return (
