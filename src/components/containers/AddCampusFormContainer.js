@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { AddCampusFormView } from "../views";
 import { addCampusThunk } from "../../thunks";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 class AddCampusFormContainer extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class AddCampusFormContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addCampus(this.state);
+    this.props.history.push("/campuses");
   };
   render() {
     return (
@@ -50,4 +51,4 @@ AddCampusFormContainer.propTypes = {
   addCampus: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatch)(AddCampusFormContainer);
+export default connect(null, mapDispatch)(withRouter(AddCampusFormContainer));
