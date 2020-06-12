@@ -11,6 +11,7 @@ const AddCampusFormView = (props) => {
             value={props.name}
             name="name"
             onChange={props.handleChange}
+            required
           ></input>
         </div>
         <div>
@@ -19,6 +20,7 @@ const AddCampusFormView = (props) => {
             value={props.address}
             name="address"
             onChange={props.handleChange}
+            required
           ></input>
         </div>
         <div>
@@ -27,6 +29,7 @@ const AddCampusFormView = (props) => {
             value={props.description}
             name="description"
             onChange={props.handleChange}
+            required
           ></input>
         </div>
         <div>
@@ -35,6 +38,7 @@ const AddCampusFormView = (props) => {
             value={props.imageUrl}
             name="imageUrl"
             onChange={props.handleChange}
+            required
           ></input>
         </div>
         <button>Create Campus</button>
