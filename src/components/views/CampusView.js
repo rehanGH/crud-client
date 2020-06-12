@@ -16,7 +16,7 @@ const CampusView = (props) => {
   if(props.campus.students){
   studentDisplay = <p>{Response.campus.students} Students</p>;
   } else {
-    studentDisplay = <p>There are np Students</p>;
+    studentDisplay = <p>There are no Students</p>;
   }
 
   return (
@@ -24,7 +24,7 @@ const CampusView = (props) => {
       <h1>{props.campus.name}</h1>
       <h3>{props.campus.address}</h3>
       <p>{props.campus.description}</p>
-      <p>{props.campus.students} Students</p>
+      {studentDisplay}
     </>
   );
 };
