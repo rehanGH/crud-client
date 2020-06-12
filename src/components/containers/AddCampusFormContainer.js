@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { AddCampusFormView } from "../views";
 import { addCampusThunk } from "../../thunks";
+import { withRouter } from 'react-router-dom'
 
 class AddCampusFormContainer extends Component {
   constructor(props) {
