@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchAllStudentsThunk, deleteStudentThunk } from "../../thunks";
-import { AllStudentsView } from "../views";
+import { AllStudentView } from "../views";
 
 // Smart container;
 class AllStudentsContainer extends Component {
@@ -16,7 +16,7 @@ class AllStudentsContainer extends Component {
 
   render() {
     return (
-      <AllStudentsView
+      <AllStudentView
         allStudents={this.props.allStudents}
         hello={this.props.hello}
         handleDelete={this.handleDelete}

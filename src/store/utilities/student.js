@@ -5,7 +5,7 @@ const FETCH_STUDENT = "FETCH_STUDENT";
 
 // Action Creators
 
-const fetchCampus = (student) => {
+const fetchStudent = (student) => {
   return {
     type: FETCH_STUDENT,
     payload: student,
@@ -13,11 +13,11 @@ const fetchCampus = (student) => {
 };
 
 // Thunk Creators
-export const fetchCampusThunk = (id) => (dispatch) => {
+export const fetchStudentThunk = (id) => (dispatch) => {
   return axios
     .get(`/api/students/${id}`)
     .then((res) => res.data)
-    .then((student) => dispatch(fetchCampus(student)))
+    .then((student) => dispatch(fetchStudent(student)))
     .catch((err) => console.log(err));
 };
 
