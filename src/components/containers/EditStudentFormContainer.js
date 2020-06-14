@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { fetchStudentsThunk, editStudentThunk } from "../../thunks";
+import { fetchStudentThunk, editStudentThunk } from "../../thunks";
 import { connect } from "react-redux";
 import { EditStudentFormView } from "../views";
 
