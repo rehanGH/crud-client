@@ -1,33 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const AddCampusFormView = (props) => {
+const EditStudentFormView = (props) => {
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
-        <div>
-          Name:{" "}
+      <div>
+          First Name:{" "}
           <input
-            value={props.name}
-            name="name"
+            value={props.firstName}
+            name="fname"
             onChange={props.handleChange}
             required
           ></input>
         </div>
         <div>
-          Address:{" "}
+          Last Name:{" "}
           <input
-            value={props.address}
-            name="address"
+            value={props.lastName}
+            name="lname"
             onChange={props.handleChange}
             required
           ></input>
         </div>
         <div>
-          Description:{" "}
+          Email:{" "}
           <input
-            value={props.description}
-            name="description"
+            value={props.email}
+            name="email"
+            onChange={props.handleChange}
+            required
+          ></input>
+        </div>
+        <div>
+          GPA:{" "}
+          <input
+            value={props.gpa}
+            name="gpa"
             onChange={props.handleChange}
             required
           ></input>
@@ -38,22 +47,22 @@ const AddCampusFormView = (props) => {
             value={props.imageUrl}
             name="imageUrl"
             onChange={props.handleChange}
-            required
           ></input>
         </div>
-        <button>Create Campus</button>
+        <button>Edit Student</button>
       </form>
     </div>
   );
 };
 
-AddCampusFormView.propTypes = {
+EditStudentFormView.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  gpa: PropTypes.string.isRequired,
 };
 
-export default AddCampusFormView;
+export default EditStudentFormView;
