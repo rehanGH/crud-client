@@ -1,7 +1,14 @@
-nav {
-  padding: 2rem;
+.nav-link {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
 }
 
-.nav-link {
-  padding: 1.5rem;
+* {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
+
