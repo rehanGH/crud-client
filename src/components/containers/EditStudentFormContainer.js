@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { fetchStudentThunk, editStudentThunk } from "../../thunks";
+import { fetchStudentThunk } from "../../thunks";
 import { connect } from "react-redux";
 import { EditStudentFormView } from "../views";
 
@@ -8,10 +8,11 @@ class EditStudentFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      address: "",
-      description: "",
+      firstName: "",
+      lastName:"",
+      email: "",
       imageUrl: "",
+      gpa: "",
     };
   }
 
@@ -36,10 +37,11 @@ class EditStudentFormContainer extends Component {
   render() {
     return (
       <EditStudentFormView
-        name={this.state.name}
-        address={this.state.address}
-        description={this.state.description}
+        firstName={this.state.firstName}
+        lastName={this.state.lastName}
+        email={this.state.email}
         imageUrl={this.state.imageUrl}
+        gpa={this.state.gpa}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
       />
@@ -54,7 +56,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
-    editStudent: (id, student) => dispatch(editStudentThunk(id, student)),
+    editStudent: (id, student) => dispatch(fetchStudentThunk(id)),
   };
 };
 

@@ -8,19 +8,23 @@ class AddStudentFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      address: "",
-      description: "",
+      firstName: "",
+      lastName:"",
+      email: "",
       imageUrl: "",
+      gpa: "",
       isValidName: false,
       errors: {},
     };
   }
 
   handleChange = (e) => {
-    if (e.target.name === "name") {
-      this.setState({ name: e.target.value }, this.validateName);
-    } else {
+    if (e.target.firstName === "firstName") {
+      this.setState({ firstName: e.target.value }, this.validateName);
+    } else if(e.target.lastName === "lastName"){
+      this.setState({ lastName: e.target.value }, this.validateName);
+    }
+    else {
       this.setState({
         [e.target.name]: e.target.value,
       });
@@ -28,18 +32,14 @@ class AddStudentFormContainer extends Component {
   };
 
   validateName = () => {
-    const { name } = this.state;
+    const { firstName } = this.state;
+    const { lastName } = this.state;
     let errors = { ...this.state.errors };
-    // set a valid boolean to true
     let isValidName = true;
-    // check if the value is valid
-    if (name.length < 2) {
-      // if not, set the value to false and add error message
+    if (firstName.length < 2 || lastName.length <2) {
       isValidName = false;
       errors.name = "Invalid student name";
     }
-    //
-    // setstate with isValidName
     if (isValidName) {
       errors.name = "valid name";
     }
@@ -56,11 +56,13 @@ class AddStudentFormContainer extends Component {
       <>
         {/* Can potentially be extracted into its own ErrorMessage component */}
         {this.state.isValidName ? "" : this.state.errors.name}
+        <AddStudentFormView
           Student
-          name={this.state.name}
-          address={this.state.address}
-          description={this.state.description}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          email={this.state.email}
           imageUrl={this.state.imageUrl}
+          gpa={this.state.gpa}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
@@ -76,7 +78,7 @@ const mapDispatch = (dispatch, ownProps) => {
 };
 
 AddStudentFormContainer.propTypes = {
-  addstudent: PropTypes.func.isRequired,
+  addSudent: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatch)(AddStudentFormContainer);

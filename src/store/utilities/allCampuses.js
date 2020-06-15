@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// const BASE_URL =
-//   "https://cors-anywhere.herokuapp.com/" + "http://localhost:3001";
-
 // ACTION TYPES;
 const FETCH_ALL_CAMPUSES = "FETCH_ALL_CAMPUSES";
 const ADD_CAMPUS = "ADD_CAMPUS";
@@ -52,7 +49,8 @@ export const addCampusThunk = (campus, ownProps) => (dispatch) => {
     .post("/api/campuses", campus)
     .then((res) => res.data)
     .then((newCampus) => {
-      dispatch(addCampus(newCampus));
+      const tweakedCampus = { ...newCampus, students: [] };
+      dispatch(addCampus(tweakedCampus));
       ownProps.history.push(`/campuses/${newCampus.id}`);
     })
     .catch((err) => console.log(err));
@@ -62,7 +60,9 @@ export const editCampusThunk = (id, campus) => (dispatch) => {
   return axios
     .put(`/api/campuses/${id}`, campus)
     .then((res) => res.data)
-    .then((updatedCampus) => dispatch(editCampus(updatedCampus)))
+    .then((updatedCampus) => {
+      dispatch(editCampus(updatedCampus));
+    })
     .catch((err) => console.log(err));
 };
 
@@ -82,7 +82,10 @@ const reducer = (state = [], action) => {
     case ADD_CAMPUS:
       return [...state, action.payload];
     case EDIT_CAMPUS:
-      return [...state, action.payload];
+      return state.map((campus) =>
+        campus.id === action.payload.id ? action.payload : campus
+      );
+
     case DELETE_CAMPUS:
       console.log(action.payload);
       return state.filter((campus) => campus.id !== action.payload);

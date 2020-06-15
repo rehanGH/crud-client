@@ -6,27 +6,36 @@ const AddStudentFormView = (props) => {
     <div>
       <form onSubmit={props.handleSubmit}>
         <div>
-          Name:{" "}
+          First Name:{" "}
           <input
-            value={props.name}
+            value={props.firstName}
             name="name"
             onChange={props.handleChange}
             required
           ></input>
         </div>
         <div>
-          Address:{" "}
+          Last Name:{" "}
           <input
-            value={props.address}
-            name="address"
+            value={props.lastName}
+            name="name"
             onChange={props.handleChange}
             required
           ></input>
         </div>
         <div>
-          Description:{" "}
+          Last Name:{" "}
           <input
-            value={props.description}
+            value={props.lastName}
+            name="name"
+            onChange={props.handleChange}
+            required
+          ></input>
+        </div>
+        <div>
+          GPA:{" "}
+          <input
+            value={props.gpa}
             name="description"
             onChange={props.handleChange}
             required
@@ -50,10 +59,11 @@ const AddStudentFormView = (props) => {
 AddStudentFormView.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  gpa: PropTypes.string.isRequired,
 };
 
 export default AddStudentFormView;

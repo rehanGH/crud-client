@@ -31,6 +31,7 @@ class EditCampusFormContainer extends Component {
     e.preventDefault();
     const id = this.props.match.params.id;
     this.props.editCampus(id, this.state);
+    this.props.history.push(`/campuses/${id}`);
   };
 
   render() {

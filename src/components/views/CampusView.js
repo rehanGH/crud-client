@@ -1,20 +1,12 @@
 import React from "react";
+import "./styles/CampusView.css";
+import { Link } from "react-router-dom";
+import {
+  StudentNameListContainer,
+  AddStudentToCampusContainer,
+} from "../containers";
 
 const CampusView = (props) => {
-  let studentDisplay;
-  if (props.campus.students) {
-    studentDisplay = (
-      <div>
-        <p>{props.campus.students.length} Students</p>
-        {props.campus.students.map((student) => (
-          <div key={student.id}>{student.firstName}</div>
-        ))}
-      </div>
-    );
-  } else {
-    studentDisplay = <p>There are no students enrolled</p>;
-  }
-
   return (
     <>
       <img src={props.campus.imageUrl} alt={props.campus.name} />
@@ -22,7 +14,20 @@ const CampusView = (props) => {
       <h3>{props.campus.address}</h3>
 
       <p>{props.campus.description}</p>
-      {studentDisplay}
+
+      <StudentNameListContainer students={props.campus.students} />
+
+      <AddStudentToCampusContainer
+        campusId={props.campus.id}
+        handleEnrollStudent={props.handleEnrollStudent}
+      />
+
+      <Link className="edit-link" to={`/campuses/${props.campus.id}/edit`}>
+        Edit
+      </Link>
+      <button onClick={() => props.handleDelete(props.campus.id)}>
+        Delete
+      </button>
     </>
   );
 };

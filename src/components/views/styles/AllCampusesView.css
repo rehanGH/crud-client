@@ -1,3 +1,9 @@
 .all-campuses {
   color: red;
 }
+.add-campus {
+  border: 2px solid teal;
+  padding: 10px;
+  margin: 20px;
+  background-color: white;
+}
